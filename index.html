@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ESP32-S3 Wi-Fi Extender Web Installer</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --accent: #38bdf8;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --border: #334155;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px 28px;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .logo {
+      max-height: 65px;
+      width: auto;
+      margin: 0 auto 16px auto;
+      display: block;
+    }
+    .badge {
+      display: inline-block;
+      padding: 5px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent);
+      border-radius: 999px;
+      margin-bottom: 14px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    h1 { font-size: 24px; font-weight: 700; margin-bottom: 10px; color: #fff; }
+    p { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 24px; }
+    .steps {
+      text-align: left;
+      background: rgba(15, 23, 42, 0.6);
+      padding: 16px 20px;
+      border-radius: 10px;
+      margin-bottom: 24px;
+      border: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text);
+    }
+    .steps ol { padding-left: 20px; }
+    .steps li { margin-bottom: 8px; }
+    .note { font-size: 12px; color: #eab308; margin-top: 16px; }
+  </style>
+  <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+</head>
+<body>
+  <div class="card">
+    <img src="logo.png" alt="Logo" class="logo">
+    <div class="badge">Hardware Flashing Utility</div>
+    <h1>ESP32-S3 Wi-Fi Extender</h1>
+    <p>Install the high-performance Long Range (LR) Wi-Fi repeater firmware onto your ESP32-S3 board directly from your web browser.</p>
+    
+    <div class="steps">
+      <ol>
+        <li>Connect your ESP32-S3 via a USB data cable.</li>
+        <li>Ensure you are using <b>Google Chrome</b> or <b>Microsoft Edge</b>.</li>
+        <li>Click <b>Install</b> below and choose your board's COM port.</li>
+      </ol>
+    </div>
+
+    <!-- Web Installer Button -->
+    <esp-web-install-button manifest="manifest.json"></esp-web-install-button>
+
+    <div class="note">
+      ⚠️ <i>Note for ESP32-S3:</i> If the installer fails to connect, press and hold the <b>BOOT</b> button, tap the <b>RST/RESET</b> button once, then release <b>BOOT</b> to enter bootloader mode.
+    </div>
+  </div>
+</body>
+</html>
